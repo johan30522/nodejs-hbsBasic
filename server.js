@@ -3,6 +3,8 @@ const app = express();
 const hbs = require('hbs');
 require('./hbs/hbs');
 
+const port = process.env.PORT || 3001;
+
 app.use(express.static(__dirname + '/public'));
 
 
@@ -18,4 +20,6 @@ app.get('/about', function(req, res) {
     res.render('about');
 })
 
-app.listen(3001)
+app.listen(port, () => {
+    console.log('Escuchando peticiones en el puerto ' + port);
+})
